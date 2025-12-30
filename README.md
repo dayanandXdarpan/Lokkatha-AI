@@ -91,4 +91,4 @@ We treat language as a first-class citizen across the stack:
 
 ## License
 
-MIT License © 2024 Dayanand Darpan. Built for the Vaishali Visionaries Hackathon.
+MIT License © 2025 Dayanand Darpan. Built for the Vaishali Visionaries Hackathon.
