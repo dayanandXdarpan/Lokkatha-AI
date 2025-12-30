@@ -56,7 +56,7 @@ We treat language as a first-class citizen across the stack:
 - **`backend/`**: Node.js API.
   - `src/services/rag.service.ts`: Context retrieval engine.
   - `src/services/gemini.service.ts`: LLM integration.
-- **`docs/`**: Detailed documentation.
+
 
 ## ⚡ Quick Start
 
@@ -75,11 +75,6 @@ We treat language as a first-class citizen across the stack:
     cd frontend && npm run dev
     ```
 
-## 📜 Documentation
-Detailed guides are available in the `docs/` directory:
-- [Setup Guide](docs/SETUP_GUIDE.md)
-- [Frontend Architecture](docs/FRONTEND_GUIDE.md)
-- [RAG Service Internals](docs/docs/06_FOLKLORE_SYSTEM.md)
 
 ## 👤 Author
 
