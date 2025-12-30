@@ -1,0 +1,239 @@
+/* Mobile-first global styles */
+
+:root {
+	/* Colors - High contrast for visibility */
+	--primary: #4F46E5;
+	--primary-dark: #3730A3;
+	--secondary: #10B981;
+	--danger: #EF4444;
+	--warning: #F59E0B;
+	--bg: #FFFFFF;
+	--bg-secondary: #F3F4F6;
+	--text: #111827;
+	--text-secondary: #6B7280;
+	--border: #E5E7EB;
+	
+	/* Spacing - Large for touch targets */
+	--space-xs: 0.5rem;
+	--space-sm: 1rem;
+	--space-md: 1.5rem;
+	--space-lg: 2rem;
+	--space-xl: 3rem;
+	
+	/* Typography */
+	--app-font: 'Inter', system-ui, sans-serif;
+	--font-sm: 0.875rem;
+	--font-base: 1rem;
+	--font-lg: 1.25rem;
+	--font-xl: 1.5rem;
+	--font-2xl: 2rem;
+	
+	/* Borders */
+	--radius-sm: 0.5rem;
+	--radius-md: 1rem;
+	--radius-lg: 1.5rem;
+	
+	/* Touch targets - Minimum 48px */
+	--touch-target: 48px;
+	
+	/* Z-index */
+	--z-nav: 100;
+	--z-modal: 200;
+	--z-toast: 300;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	/* Prevent text size adjust on orientation change */
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	font-family: var(--app-font);
+	font-size: var(--font-base);
+	line-height: 1.5;
+	color: var(--text);
+	background: var(--bg);
+	min-height: 100%;
+	/* Prevent bounce scrolling on iOS */
+	overscroll-behavior-y: none;
+	/* Safe area insets for notch devices */
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Touch-friendly scrolling */
+* {
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Remove focus outline on touch, keep for keyboard */
+*:focus:not(:focus-visible) {
+	outline: none;
+}
+
+*:focus-visible {
+	outline: 2px solid var(--primary);
+	outline-offset: 2px;
+}
+
+/* Button styles */
+button {
+	font-family: inherit;
+	font-size: inherit;
+	cursor: pointer;
+	border: none;
+	background: none;
+	/* Prevent double-tap zoom */
+	touch-action: manipulation;
+	/* Remove iOS button styling */
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+/* Input styles */
+input, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	padding: var(--space-sm);
+	width: 100%;
+	/* Remove iOS input styling */
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+input:focus, select:focus, textarea:focus {
+	outline: none;
+	border-color: var(--primary);
+}
+
+/* Disable text selection on UI elements */
+.no-select {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* Utility classes */
+.container {
+	max-width: 100%;
+	padding: 0 var(--space-md);
+	margin: 0 auto;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-xs);
+	min-height: var(--touch-target);
+	padding: var(--space-sm) var(--space-lg);
+	border-radius: var(--radius-md);
+	font-weight: 600;
+	transition: all 0.2s;
+	text-decoration: none;
+}
+
+.btn-primary {
+	background: var(--primary);
+	color: white;
+}
+
+.btn-primary:active {
+	background: var(--primary-dark);
+	transform: scale(0.98);
+}
+
+.btn-secondary {
+	background: var(--bg-secondary);
+	color: var(--text);
+}
+
+.btn-secondary:active {
+	background: var(--border);
+	transform: scale(0.98);
+}
+
+.btn-danger {
+	background: var(--danger);
+	color: white;
+}
+
+.btn-large {
+	min-height: 56px;
+	font-size: var(--font-lg);
+	padding: var(--space-md) var(--space-xl);
+}
+
+.btn-full {
+	width: 100%;
+}
+
+.card {
+	background: white;
+	border-radius: var(--radius-lg);
+	padding: var(--space-md);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-muted {
+	color: var(--text-secondary);
+}
+
+/* Loading spinner */
+.spinner {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border: 3px solid rgba(255, 255, 255, 0.3);
+	border-top-color: white;
+	border-radius: 50%;
+	animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+/* Page transitions */
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+	animation: fadeIn 0.3s ease-out;
+}
+
+/* Safe area handling for iOS notch */
+@supports (padding: max(0px)) {
+	body {
+		padding-top: max(env(safe-area-inset-top), 0px);
+		padding-bottom: max(env(safe-area-inset-bottom), 0px);
+	}
+}

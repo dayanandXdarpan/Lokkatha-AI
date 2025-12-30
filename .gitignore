@@ -1,0 +1,35 @@
+# Global .gitignore
+node_modules/
+dist/
+build/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+logs/
+temp/
+tmp/
+coverage/
+.svelte-kit/
+
+# Secrets
+*.json
+!package.json
+!tsconfig.json
+!svelte.config.js
+!vite.config.ts
+!audiobook_key.json.example
+
+# Media (Generated)
+*.mp4
+*.mp3
+*.jpg
+*.png
+
+# Exclude from GitHub
+docs/
+backend/test/
+.github/
