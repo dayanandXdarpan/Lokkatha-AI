@@ -33,3 +33,4 @@ coverage/
 docs/
 backend/test/
 .github/
+*.timestamp-*.mjs
